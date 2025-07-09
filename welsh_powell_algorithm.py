@@ -24,12 +24,12 @@ def welsh_powell_algorithm(grafo):
             vertice = item[0]
             
             if cores[vertice] is None:
-                pode_colorar = True
+                pode_colorir = True
                 for vizinho in grafo[vertice]:
                     if cores[vizinho] == cor:
-                        pode_colorar = False
+                        pode_colorir = False
                         break
-                if pode_colorar:
+                if pode_colorir:
                     cores[vertice] = cor
 
 
