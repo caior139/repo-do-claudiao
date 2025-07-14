@@ -1,15 +1,7 @@
-def matriz_para_grafo(adj_matrix):
-    grafo = {}
-    for i in range(len(adj_matrix)):
-        grafo[i] = []
-        for j in range(len(adj_matrix[i])):
-            if adj_matrix[i][j] == 1:
-                grafo[i].append(j)
-    return grafo
+import time
 
-def incidence_degree_ordering_algorithm(matriz_adj):
-
-    grafo = matriz_para_grafo(matriz_adj)
+def incidence_degree_ordering_algorithm(grafo):
+    inicio = time.process_time()
 
     cores = {}
     grau = {}
@@ -77,16 +69,8 @@ def incidence_degree_ordering_algorithm(matriz_adj):
 
         cores[vertice_para_colorir] = cor_escolhida
 
-    return cores
 
+    fim = time.process_time()
 
-matriz = [
-[0,1,1,0,0,0,0],
-[1,0,1,0,0,0,1],
-[1,1,0,1,1,0,0],
-[0,0,1,0,0,1,0],
-[0,0,1,0,0,1,1],
-[0,0,0,1,1,0,0],
-[0,1,0,0,1,0,0]]
-    
-print(incidence_degree_ordering_algorithm(matriz))
+    return [cores,fim-inicio]
+

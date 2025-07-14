@@ -1,15 +1,8 @@
-def matriz_para_grafo(adj_matrix):
-    grafo = {}
-    for i in range(len(adj_matrix)):
-        grafo[i] = []
-        for j in range(len(adj_matrix[i])):
-            if adj_matrix[i][j] == 1:
-                grafo[i].append(j)
-    return grafo
+import time
 
-def degree_of_saturation_algorithm(matriz_adj):
+def degree_of_saturation_algorithm(grafo):
 
-    grafo = matriz_para_grafo(matriz_adj)
+    inicio = time.process_time()
     cores = {}
     grau = {}
     lista_cores = [0]
@@ -71,15 +64,6 @@ def degree_of_saturation_algorithm(matriz_adj):
             proxima_cor += 1
 
         cores[vertice_para_colorir] = cor_escolhida
-    return cores
 
-matriz = [
-[0,1,1,0,0,0,0],
-[1,0,1,0,0,0,1],
-[1,1,0,1,1,0,0],
-[0,0,1,0,0,1,0],
-[0,0,1,0,0,1,1],
-[0,0,0,1,1,0,0],
-[0,1,0,0,1,0,0]]
-    
-print(degree_of_saturation_algorithm(matriz))
+    fim = time.process_time()
+    return [cores,fim-inicio]

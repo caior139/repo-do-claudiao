@@ -1,16 +1,7 @@
-def matriz_para_grafo(adj_matrix):
-    grafo = {}
-    for i in range(len(adj_matrix)):
-        grafo[i] = []
-        for j in range(len(adj_matrix[i])):
-            if adj_matrix[i][j] == 1:
-                grafo[i].append(j)
-    return grafo
+import time
 
-
-def largest_degree_ordering_algorithm(matriz_adj):
-    grafo = matriz_para_grafo(matriz_adj)
-    
+def largest_degree_ordering_algorithm(grafo):
+    inicio = time.process_time()
     cores = {}
     grau = {}
 
@@ -34,6 +25,6 @@ def largest_degree_ordering_algorithm(matriz_adj):
         cores[i[0]] = cor
         
 
-
-    return cores
+    fim = time.process_time()
+    return [cores,fim-inicio]
 

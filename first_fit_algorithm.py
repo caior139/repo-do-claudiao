@@ -1,14 +1,7 @@
-def matriz_para_grafo(adj_matrix):
-    grafo = {}
-    for i in range(len(adj_matrix)):
-        grafo[i] = []
-        for j in range(len(adj_matrix[i])):
-            if adj_matrix[i][j] == 1:
-                grafo[i].append(j)
-    return grafo
+import time
 
-def first_fit_algorithm(matriz_adj):
-    grafo = matriz_para_grafo(matriz_adj)
+def first_fit_algorithm(grafo):
+    inicio = time.process_time()
     
     cores = {}
     for vertice in grafo:
@@ -26,4 +19,7 @@ def first_fit_algorithm(matriz_adj):
 
         cores[vertice] = cor
 
-    return cores
+    fim = time.process_time()
+
+    return [cores,fim - inicio]
+

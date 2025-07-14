@@ -1,13 +1,7 @@
-def matriz_para_grafo(adj_matrix):
-    grafo = {}
-    for i in range(len(adj_matrix)):
-        grafo[i] = []
-        for j in range(len(adj_matrix[i])):
-            if adj_matrix[i][j] == 1:
-                grafo[i].append(j)
-    return grafo
+import time
 
 def welsh_powell_algorithm(grafo):
+    inicio = time.process_time()
     cores = {}
     grau = {}
 
@@ -24,12 +18,12 @@ def welsh_powell_algorithm(grafo):
             vertice = item[0]
             
             if cores[vertice] is None:
-                pode_colorir = True
+                pode_colorar = True
                 for vizinho in grafo[vertice]:
                     if cores[vizinho] == cor:
-                        pode_colorir = False
+                        pode_colorar = False
                         break
-                if pode_colorir:
+                if pode_colorar:
                     cores[vertice] = cor
 
 
@@ -43,6 +37,7 @@ def welsh_powell_algorithm(grafo):
             break
 
         cor += 1
-
-    return cores
+    
+    fim = time.process_time()
+    return [cores, fim - inicio]
 
