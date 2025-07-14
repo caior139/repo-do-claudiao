@@ -4,10 +4,10 @@ import json
 
 
 algoritmos = ['ffa', 'dsa', 'idoa', 'ldoa', 'rlfa', 'wpa']
-grafos = ["dsjc250.5", "dsjc500.1", "dsjc500.5", "dsjc500.9", "dsjc1000.1", "sjc1000.5",
+grafos = ["dsjc250.5", "dsjc500.1", "dsjc500.5", "dsjc500.9", "dsjc1000.1", "dsjc1000.5",
     "dsjc1000.9", "r250.5", "r1000.1c", "r1000.5", "dsjr500.1c", "dsjr500.5",
-    "le450 25c", "le450.25d", "flat300 28 0", "flat1000 50 0", "flat1000 60 0",
-    "flat1000 76 0", "latin square", "C2000.5", "C4000.5"]
+    "le450_25c", "le450.25d", "flat300_28_0", "flat1000_50_0", "flat1000_60_0",
+    "flat1000_76_0", "latin_square", "C2000.5", "C4000.5"]
 
 
 
@@ -37,7 +37,7 @@ def testando_tudo(grafos):
     grafos_resultados = []
 
     for nome_grafo in grafos:
-        caminho = '/home/caio/Desktop/Geral/LaTeX/Untitled Folder' + '/'+ nome_grafo + '.txt'
+        caminho = '/home/caio/Desktop/Geral/Python/grafos' + '/'+ nome_grafo + '.txt'
         grafo = conv.matriz_para_grafo(conv.ler_matriz(caminho))
         resultado_algoritmo = bateria_de_testes(grafo)
 
