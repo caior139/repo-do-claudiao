@@ -5,7 +5,7 @@ import json
 
 algoritmos = ['ffa', 'dsa', 'idoa', 'ldoa', 'rlfa', 'wpa']
 
-grafos = ["dsjc250.5", "dsjc500.1", "dsjc500.5"]
+grafos_1 = ["dsjc250.5", "dsjc500.1", "dsjc500.5"]
 
 grafos_2 = ["dsjc500.9", "dsjc1000.1", "dsjc1000.5",
     "dsjc1000.9", "r250.5"]
@@ -49,15 +49,16 @@ def cores_usadas(resultado_algoritmo):
 
 
 def grafo_para_dados(grafos):
-    grafos_resultados = []
+    grafos_resultados = {}
 
     i = 1
 
     for nome_grafo in grafos:
+        grafos_resultados[nome_grafo] = []
+
         print(f'{i}. Grafo {nome_grafo} em processamento...') 
         caminho = '/home/caio/Desktop/Geral/Python/grafos' + '/'+ nome_grafo + '.txt'
         grafo = conv.matriz_para_grafo(conv.ler_matriz(caminho))
-        grafos_resultados.append(nome_grafo)
         resultado_algoritmo = bateria_de_testes(grafo)
 
         for algoritmo in algoritmos:
@@ -66,7 +67,8 @@ def grafo_para_dados(grafos):
 
         
         print(f'Grafo {nome_grafo} completo') 
-        grafos_resultados.append(resultado_algoritmo)
+
+        grafos_resultados[nome_grafo].append(resultado_algoritmo)
 
         i += 1
 
